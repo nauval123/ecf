@@ -38,6 +38,8 @@
           </div>
       </div>
   </nav>
+  <br>
+  <br>
     @yield('content')
   <div class="container-fluid bg-primary ">
       <footer class="py-md-3" >

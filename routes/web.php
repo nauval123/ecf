@@ -22,22 +22,43 @@ use Illuminate\Support\Facades\Route;
 //    }
 //});
 
-Auth::routes();
 Route::get('login','LoginController@index')->name('loginpage');
 Route::view('/','series/homepage')->name('homepage');
 Route::post('login','LoginController@login')->name('login');
 Route::view('create','series/create');
+//Route::view('farmer','farmer/homepagefarmer')->name('homepageFarmer');
 
+
+Route::group(['middleware'=>'auth','web'],function(){
+    Route::get('logout','LoginController@logout')->name('logoutAdmin');
+    Route::group(['middleware'=>['admin']],function (){
+        Route::view('admin','admin/homepageAdmin')->name('homepageAdmin');
+        Route::view('admin/artikel','admin/artikelAdmin')->name('lihatartikel');
+        Route::view('admin/artikel/create','admin/buatArtikel')->name('buatartikel');
+
+    });
+    Route::view('farmer','farmer/homepagefarmer')->name('homepageFarmer');
+});
+
+//Route::group(['middleware'=>['admin']],function (){
+//    Route::view('admin','admin/homepageAdmin')->name('homepageAdmin');
+//    Route::view('admin/artikel','admin/artikelAdmin')->name('lihatartikel');
+//    Route::view('admin/artikel/create','admin/buatArtikel')->name('buatartikel');
+//    Route::get('logout','LoginController@logout')->name('logoutAdmin');
+//});
 
 
 ////Route::group(['middleware'=>'CekLoginMiddleware'],function(){
- Route::group(['middleware'=>'auth'],function(){
-    Route::view('admin','admin/homepageAdmin')->name('homepageAdmin');
-    Route::view('admin/artikel','admin/artikelAdmin');
-    Route::view('artikel','admin/artikelAdmin')->name('lihatartikel');
-    Route::view('artikel/create','admin/buatArtikel')->name('buatartikel');
-    Route::get('logout','LoginController@logout')->name('logoutAdmin');
-});
+//Route::group(['middleware'=>'auth'],function(){
+//    Route::view('admin','admin/homepageAdmin')->name('homepageAdmin');
+//    Route::view('admin/artikel','admin/artikelAdmin');
+//    Route::view('artikel','admin/artikelAdmin')->name('lihatartikel');
+//    Route::view('artikel/create','admin/buatArtikel')->name('buatartikel');
+//    Route::get('logout','LoginController@logout')->name('logoutAdmin');
+//});
+
+
+
 
 Auth::routes();
 
