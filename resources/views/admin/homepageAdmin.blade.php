@@ -10,32 +10,32 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Artikel</h4>
+                    <a href="{{route('buatartikel')}}" class="btn btn-info">+ Tambah</a>
+                    <div class="card-header-form">
+                        {{--                            <form>--}}
+                        {{--                                <div class="input-group">--}}
+                        {{--                                    <input type="text" class="form-control" placeholder="Search">--}}
+                        {{--                                    <div class="input-group-btn">--}}
+                        {{--                                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </form>--}}
+                    </div>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
-
-                                <th>Nama</th>
-                                <th>Terakhir Aktif</th>
+                                <th>Judul Artikel</th>
+                                <th>Penulis</th>
+                                <th>tanggal</th>
+                                <th>Action</th>
                             </tr>
                             <tr>
-
-                                <td>Create a mobile app</td>
+                                <td>Apasih Hama di ayam itu </td>
+                                <td>Admin1 </td>
                                 <td>2018-01-20</td>
-                            </tr>
-                            <tr>
-
-                                <td>Redesign homepage</td>
-                                <td>2018-04-10</td>
-                            </tr>
-                            <tr>
-                                <td>Backup database</td>
-                                <td>2018-01-29</td>
-                            </tr>
-                            <tr>
-                                <td>Input data</td>
-                                <td>2018-01-16</td>
+                                <td><a href="#" class="btn btn-success">Detail</a></td>
                             </tr>
                         </table>
                     </div>

@@ -24,33 +24,36 @@
             <form class="form-inline mr-auto">
                 <ul class="navbar-nav mr-3">
                     <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-                    <li class="dropdown show"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user" aria-expanded="true">
-                            <div class="d-sm-none d-lg-inline-block">Hi</div></a>
-                        <div class="dropdown-menu dropdown-menu-right show">
-                            <a href="{{route('logoutAdmin')}}" class="dropdown-item has-icon text-danger">
-                                <i class="fas fa-sign-out-alt"></i> Logout
-                            </a>
-                        </div>
-                    </li>
+                    {{--                    <li class="dropdown show"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user" aria-expanded="true">--}}
+                    {{--                            <div class="d-sm-none d-lg-inline-block">Hi</div></a>--}}
+                    {{--                        <div class="dropdown-menu dropdown-menu-right show">--}}
+                    {{--                            <a href="{{route('logoutAdmin')}}" class="dropdown-item has-icon text-danger">--}}
+                    {{--                                <i class="fas fa-sign-out-alt"></i> Logout--}}
+                    {{--                            </a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </li>--}}
                 </ul>
             </form>
         </nav>
         <div class="main-sidebar">
             <aside id="sidebar-wrapper">
                 <div class="sidebar-brand">
-{{--                    <a href="{{route('homepageAdmin')}}">E Chicken Farmer</a>--}}
+                    <a href="{{route('homepageFarmer')}}">E Chicken Farmer</a>
                 </div>
                 <div class="sidebar-brand sidebar-brand-sm">
-                    <a href="index.html">ECF</a>
+                    <a href="{{route('homepageFarmer')}}">ECF</a>
                 </div>
                 <ul class="sidebar-menu">
-                    <li class="menu-header">Admin</li>
+                    <li class="menu-header">{{auth()->user()->name}}</li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Artikel</span></a>
-                        <ul class="dropdown-menu">
-{{--                            <li><a class="nav-link" href="{{route('lihatartikel')}}">Lihat Artikel</a></li>--}}
-{{--                            <li><a class="nav-link" href="{{route('buatartikel')}}">buat artikel</a></li>--}}
-                        </ul>
+                        <a href="{{route('profilFarmer')}}" class="nav-link"><i class="far fa-user"></i> <span>Profile</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="{{route('homepageFarmer')}}" class="nav-link"><i class="far fa-file-alt"></i> <span>Data Pakan</span></a>
+{{--                        <ul class="dropdown-menu">--}}
+{{--                            --}}{{--                            <li><a class="nav-link" href="{{route('lihatartikel')}}">Lihat Artikel</a></li>--}}
+{{--                            <li><a class="nav-link" href="{{route('buatartikel')}}">Tambah Data Pakan</a></li>--}}
+{{--                        </ul>--}}
                     </li>
                     {{--                    <li class="nav-item dropdown">--}}
                     {{--                        <a href="#" class="nav-link"><i class="far fa-user"></i> <span>Profile</span></a>--}}
@@ -58,7 +61,7 @@
                 </ul>
 
                 <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-                    <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                    <a href="{{route('logoutAdmin')}}" class="btn btn-primary btn-lg btn-block btn-icon-split">
                         Log Out
                     </a>
                 </div>
@@ -67,7 +70,7 @@
 
         <!-- Main Content -->
         @yield('kontenFarmer')
-        <
+
 
     </div>
 </div>

@@ -1,6 +1,6 @@
 @extends('navbar')
 @section('content')
-<div class="container ">
+<div class="container"  data-aos="fade-up">
 
     <h1 class="my-4 text-center" >Artikel</h1>
 

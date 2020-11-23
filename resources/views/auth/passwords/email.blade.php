@@ -1,7 +1,9 @@
-@extends('layouts.app')
-
+@extends('navbar')
 @section('content')
-<div class="container">
+    <div class="row m-xl-5">
+        <h3 class="my-4 text-center"></h3>
+    </div>
+<div class="container"  data-aos="fade-up">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

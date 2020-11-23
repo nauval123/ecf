@@ -5,11 +5,39 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
     public function index(){
         return view('series/login');
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $this->validate($request, [
+                'id' => 'required',
+                'name' => 'required',
+                'email' => 'required'
+            ]);
+            $user = User::find($request->id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+            if($user->admin == 1){
+                return redirect()->route('profilAdmin')->with('message',"profil berhasil diubah!");
+            }elseif($user->admin == 0){
+                return redirect()->route('profilFarmer')->with('message','profil berhasil diubah');
+            }
+
+        } catch (ValidationException $e) {
+            if($user->admin == 1){
+                return redirect()->route('profilAdmin')->with('message',"profil gagal diubah!");
+            }elseif($user->admin == 0){
+                return redirect()->route('profilFarmer')->with('message','profil gagal diubah');
+            }
+        }
     }
 
     public function login(Request $request){
@@ -20,14 +48,14 @@ class LoginController extends Controller
 //            return redirect()->route('homepageAdmin');
 //          }
 //      }
-//        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-//            return redirect()->route('homepageAdmin');
-//        }
-//      return redirect(route('loginpage'))->with('message','login gagal');
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+            return redirect()->route('homepageAdmin');
+        }
+      return redirect(route('loginpage'))->with('message','login gagal');
     }
 
     public function logout(Request $request){
-//        $request->session()->flush();
+        $request->session()->flush();
         Auth::logout();
         return redirect()->route('login');
     }

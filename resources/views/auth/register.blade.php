@@ -8,7 +8,7 @@
         <h3 class="my-4 text-center"></h3>
     </div>
 
-<div class="container">
+<div class="container-fluid" data-aos="fade-up" >
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -17,7 +17,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -79,10 +78,9 @@
 
                 </div>
             </div>
-            <div class="row m-xl-5">
-                <h3 class="my-4 text-center"></h3>
-            </div>
         </div>
     </div>
+
+
 </div>
 @endsection
