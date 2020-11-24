@@ -23,31 +23,31 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form method="post" action="{{route('storeartikel')}}">
+                                <form method="post" action="">
                                     @csrf
-
+{{--                                    {{route('updateartikel')}}--}}
                                     <div class="form-group row mb-4">
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input name="judul" type="text" class="form-control" value="{{$detail->judul}}">
+                                            <input name="judul" type="text" class="form-control" @if($detail!= null)value="{{$detail->judul}}"@endif>
 
-                                            @if($errors->has('judul'))
-                                                <div class="text-danger">
-                                                    {{ $errors->first('judul')}}
-                                                </div>
-                                            @endif
+{{--                                            @if($errors->has('judul'))--}}
+{{--                                                <div class="text-danger">--}}
+{{--                                                    {{ $errors->first('judul')}}--}}
+{{--                                                </div>--}}
+{{--                                            @endif--}}
                                         </div>
                                     </div>
                                     <div class="form-group row mb-4">
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Content</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <textarea name="konten" class="summernote-simple" value="{{$detail->konten}}"></textarea>
+                                            <textarea name="konten" class="summernote-simple" value=""> @if($detail!= null){{$detail->isi}}@endif</textarea>
 
-                                            @if($errors->has('konten'))
-                                                <div class="text-danger">
-                                                    {{ $errors->first('konten')}}
-                                                </div>
-                                            @endif
+{{--                                            @if($errors->has('konten'))--}}
+{{--                                                <div class="text-danger">--}}
+{{--                                                    {{ $errors->first('konten')}}--}}
+{{--                                                </div>--}}
+{{--                                            @endif--}}
                                         </div>
                                     </div>
                                     <div class="form-group row mb-4">
