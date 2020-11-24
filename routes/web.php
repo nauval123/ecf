@@ -27,9 +27,9 @@ Route::group(['middleware'=>'auth','web'],function(){
     Route::post('profile/update','LoginController@update')->name('updateProfil');
     Route::group(['middleware'=>['admin']],function (){
         Route::get('admin','ControllerArtikel@index')->name('homepageAdmin');
-        Route::get('artikel/{id}','ControllerArtikel@edit')->name('lihatartikel');
+        Route::get('artikel/{id}','ControllerArtikel@show')->name('lihatartikel');
         Route::get('artikel/delete/{id}',['as'=>'hapusartikel','uses'=>'ControllerArtikel@delete']);
-        Route::get('artikel/create','ControllerArtikel@create')->name('buatartikel');
+        Route::get('create','ControllerArtikel@create')->name('buatartikel');
         Route::get('artikel/edit/{id}', ['as' => 'editartikel', 'uses' => 'ControllerArtikel@edit']);
         Route::put('artikel/edit/{id}', ['as' => 'updateartikel', 'uses' => 'ControllerArtikel@update']);
         Route::post('artikel/post','ControllerArtikel@store')->name('storeartikel');

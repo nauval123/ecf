@@ -14,7 +14,6 @@ class ControllerArtikel extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-//    Menampilkan daftar artikel sesuai id user yang login
     public function index()
     {
         $user = auth()->user()->id;
@@ -27,7 +26,6 @@ class ControllerArtikel extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-//    menampilkan view buat login
     public function create()
     {
         return view('admin/buatArtikel');
@@ -39,7 +37,6 @@ class ControllerArtikel extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-//    method membuat
     public function store(Request $request)
     {
         $user=auth()->user();
@@ -70,7 +67,9 @@ class ControllerArtikel extends Controller
      */
     public function show($id)
     {
-
+        $user = auth()->user();
+        $detail=$user->artikel()->find($id);
+        return view('admin\detailArtikel',['detail'=>$detail]);
     }
 
     /**
@@ -79,12 +78,9 @@ class ControllerArtikel extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-//    untuk melihat detail artikel
     public function edit($id)
     {
-        $user = auth()->user();
-        $detail=$user->artikel()->find($id);
-        return view('admin\detailArtikel',['detail'=>$detail]);
+        //
     }
 
     /**
@@ -94,7 +90,6 @@ class ControllerArtikel extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-//    update ke db melalui modal
     public function update(Request $request, $id)
     {
         //
