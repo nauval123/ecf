@@ -19,7 +19,7 @@ Route::view('/','series/homepage')->name('homepage');
 Route::post('login','LoginController@login')->name('login');
 Route::view('create','series/create');
 Route::view('/artikel','series/artikel')->name('artikel');
-
+//Route::get('artikel/detail/{id}','');
 
 
 Route::group(['middleware'=>'auth','web'],function(){
@@ -28,13 +28,12 @@ Route::group(['middleware'=>'auth','web'],function(){
     Route::group(['middleware'=>['admin']],function (){
         Route::get('admin','ControllerArtikel@index')->name('homepageAdmin');
         Route::get('artikel/{id}','ControllerArtikel@show')->name('lihatartikel');
-        Route::get('artikel/delete/{id}',['as'=>'hapusartikel','uses'=>'ControllerArtikel@delete']);
+        Route::get('artikel/delete/{id}',['as'=>'hapusartikel','uses'=>'ControllerArtikel@destroy']);
         Route::get('create','ControllerArtikel@create')->name('buatartikel');
         Route::get('artikel/edit/{id}', ['as' => 'editartikel', 'uses' => 'ControllerArtikel@edit']);
-        Route::put('artikel/edit/{id}', ['as' => 'updateartikel', 'uses' => 'ControllerArtikel@update']);
+        Route::put('artikel/update/{id}', ['as' => 'updateartikel', 'uses' => 'ControllerArtikel@update']);
         Route::post('artikel/post','ControllerArtikel@store')->name('storeartikel');
         Route::view('admin/profile','admin/adminProfil')->name('profilAdmin');
-
     });
     Route::view('farmer','farmer/homepagefarmer')->name('homepageFarmer');
     Route::view('farmer/profil','farmer/farmerProfil')->name('profilFarmer');

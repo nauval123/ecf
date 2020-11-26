@@ -23,13 +23,13 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form method="post" action="{{route('storeartikel')}}">
+                                <form method="post" action="{{route('updateartikel',[$detail->id])}}">
                                     @csrf
-
+                                    @method('put')
                                     <div class="form-group row mb-4">
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input name="judul" type="text" class="form-control" @if($detail!=null)value="{{$detail->judul}}" @endif>
+                                            <input name="judul" type="text" class="form-control" @if($detail!=null)value="{{$detail->judul}}" @endif value="{{old('judul')}}">
 
                                             @if($errors->has('judul'))
                                                 <div class="text-danger">
@@ -41,7 +41,7 @@
                                     <div class="form-group row mb-4">
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Content</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <textarea name="konten" class="summernote-simple" value="">@if($detail!=null){{$detail->isi}} @endif</textarea>
+                                            <textarea name="konten" class="summernote-simple" value="">@if($detail!=null){{$detail->isi}} @endif {{old('konten')}}</textarea>
 
                                             @if($errors->has('konten'))
                                                 <div class="text-danger">
@@ -54,9 +54,9 @@
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                         <div class="col-sm-12 col-md-7">
                                             <button class="btn btn-primary">submit</button>
-                                            <a href="" class="btn btn-success ml-xl-5">hapus</a>
+                                            <a href="{{route('hapusartikel',[$detail->id])}}" class="btn btn-danger ml-xl-5"  onclick="return confirm('Yakin menghapus artikel?')">hapus</a>
                                         </div>
-                                    </div>
+                                     </div>
                                 </form>
                             </div>
                         </div>

@@ -92,7 +92,34 @@ class ControllerArtikel extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=auth()->user();
+        $messages = [
+            'required' => 'Tidak Boleh Kosong!!',
+        ];
+        $this->validate($request,[
+            'judul'=>'required',
+            'konten'=>'required',
+            'updated_at'=>now()
+        ],$messages);
+
+        try {
+            $user->artikel()->find($id)->update([
+                'judul'=>$request->judul,
+                'isi'=>$request->konten,
+                'updated_at'=>now()
+            ]);
+//            $artikel=$user->artikel()->find($id);
+//            $artikel->judul= $request->judul;
+//            $artikel->isi= $request->konten;
+//            $artikel->updated_at=now();
+            return redirect()->route('homepageAdmin')->with('pesan','sukses terubah');
+        }catch (QueryException $e){
+            return redirect()->route('editartikel')->withInput()->with('pesan','gagal diubah');
+        }catch (Exception $e){
+            return redirect()->route('editartikel',['detail'=>$request])->withInput()->with('pesan','gagal diubah');
+        }
+
+
     }
 
     /**
@@ -103,6 +130,14 @@ class ControllerArtikel extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $user=auth()->user();
+            $artikel=$user->artikel()->find($id);
+            $artikel->delete();
+            return redirect()->route('homepageAdmin')->with('pesan','sukses terhapus');
+        }
+        catch (QueryException $e){
+            return redirect()->route('editartikel')->withInput()->with('pesan','gagal dihapus');
+        }
     }
 }
