@@ -1,5 +1,6 @@
 @extends('navbar')
 @section('content')
+    //tampilan login
     <section class="section">
 <div class="container">
     <div class="row">

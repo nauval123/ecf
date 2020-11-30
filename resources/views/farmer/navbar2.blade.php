@@ -12,8 +12,8 @@
     <!-- CSS Libraries -->
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/components.css">
 </head>
 
 <body>
@@ -24,14 +24,6 @@
             <form class="form-inline mr-auto">
                 <ul class="navbar-nav mr-3">
                     <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-                    {{--                    <li class="dropdown show"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user" aria-expanded="true">--}}
-                    {{--                            <div class="d-sm-none d-lg-inline-block">Hi</div></a>--}}
-                    {{--                        <div class="dropdown-menu dropdown-menu-right show">--}}
-                    {{--                            <a href="{{route('logoutAdmin')}}" class="dropdown-item has-icon text-danger">--}}
-                    {{--                                <i class="fas fa-sign-out-alt"></i> Logout--}}
-                    {{--                            </a>--}}
-                    {{--                        </div>--}}
-                    {{--                    </li>--}}
                 </ul>
             </form>
         </nav>
@@ -58,6 +50,7 @@
                     {{--                    <li class="nav-item dropdown">--}}
                     {{--                        <a href="#" class="nav-link"><i class="far fa-user"></i> <span>Profile</span></a>--}}
                     {{--                    </li>--}}
+                    <li><a class="nav-link" href="{{route('artikelFarmer')}}"><i class="far fa-square"></i> <span>artikel</span></a></li>
                 </ul>
 
                 <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
@@ -81,7 +74,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="../assets/js/stisla.js"></script>
+<script src="http://127.0.0.1:8000/assets/js/stisla.js"></script>
 
 <!-- JS Libraies -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -89,8 +82,8 @@
 
 
 <!-- Template JS File -->
-<script src="../assets/js/scripts.js"></script>
-<script src="../assets/js/custom.js"></script>
+<script src="http://127.0.0.1:8000/assets/js/scripts.js"></script>
+<script src="http://127.0.0.1:8000/assets/js/custom.js"></script>
 
 
 <!-- Page Specific JS File -->

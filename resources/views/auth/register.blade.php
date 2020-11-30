@@ -2,7 +2,8 @@
 
 @section('content')
 
-
+//tampilan daftar
+//controller bawaan dari laravel
 
     <div class="row m-xl-5">
         <h3 class="my-4 text-center"></h3>

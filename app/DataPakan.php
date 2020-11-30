@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataPakan extends Model
 {
-//    protected $table = 'datapakan';
+    protected $table = 'datapakan';
+    protected $fillable=[
+        'user_id','nama','umurAyam','bobot','detail','status'
+    ];
     public function users(){
         return $this->belongsTo(User::class);
     }

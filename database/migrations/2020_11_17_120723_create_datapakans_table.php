@@ -15,12 +15,13 @@ class CreateDatapakansTable extends Migration
     {
         Schema::create('datapakan', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned()->unique();
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('nama');
             $table->integer('umurAyam');
             $table->integer('bobot');
-            $table->string('statusKesehatan',20);
-            $table->integer('Status');
+            $table->string('detail',100)->default('');
+            $table->string('status',10)->default('');
             $table->timestamps();
         });
     }

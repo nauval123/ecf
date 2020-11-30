@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Artikel;
+use App\DataPakan;
 use App\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ControllerArtikel extends Controller
 {
@@ -67,9 +70,7 @@ class ControllerArtikel extends Controller
      */
     public function show($id)
     {
-        $user = auth()->user();
-        $detail=$user->artikel()->find($id);
-        return view('admin\detailArtikel',['detail'=>$detail]);
+
     }
 
     /**
@@ -80,7 +81,9 @@ class ControllerArtikel extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = auth()->user();
+        $detail=$user->artikel()->find($id);
+        return view('admin\detailArtikel',['detail'=>$detail]);
     }
 
     /**
@@ -118,8 +121,6 @@ class ControllerArtikel extends Controller
         }catch (Exception $e){
             return redirect()->route('editartikel',['detail'=>$request])->withInput()->with('pesan','gagal diubah');
         }
-
-
     }
 
     /**
@@ -140,4 +141,35 @@ class ControllerArtikel extends Controller
             return redirect()->route('editartikel')->withInput()->with('pesan','gagal dihapus');
         }
     }
+
+    public function showartikel(){
+        if(Auth::user() != null){
+            $artikel=Artikel::paginate(10);
+            return view('farmer/lihatArtikel',['artikel'=>$artikel]);
+        }
+        else{
+            $artikel=Artikel::paginate(10);
+            $datapakan=DataPakan::where('status','berhasil')->paginate(10);
+            return view('series/artikel',['artikel'=>$artikel,'datapakan'=>$datapakan]);
+        }
+
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function detailartikel($id){
+        if(Auth::user()){
+            $artikel=Artikel::find($id);
+            return view('farmer/detailArtikel',['artikel'=>$artikel]);
+        }
+        else{
+            $artikel=Artikel::find($id);
+            return view('series/detailArtikel',['artikel'=>$artikel]);
+        }
+    }
+
+
 }
