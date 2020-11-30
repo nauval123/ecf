@@ -234,7 +234,7 @@ class ControllerDataPakan extends Controller
             'status'=>'required',
         ],$messages);
         try {
-        
+
             if(strcmp($request->status,'gagal') == 0 or strcmp($request->status,'berhasil')  == 0 ){
                 $dp=$user->datapakan()->find($id);
                 $dp->status = $request->status;

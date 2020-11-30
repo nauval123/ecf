@@ -68,9 +68,17 @@ class ControllerArtikel extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-
+        if(Auth::user() != null){
+            $artikel=Artikel::paginate(10);
+            return view('farmer/lihatArtikel',['artikel'=>$artikel]);
+        }
+        else{
+            $artikel=Artikel::paginate(10);
+            $datapakan=DataPakan::where('status','berhasil')->paginate(10);
+            return view('series/artikel',['artikel'=>$artikel,'datapakan'=>$datapakan]);
+        }
     }
 
     /**
@@ -143,15 +151,7 @@ class ControllerArtikel extends Controller
     }
 
     public function showartikel(){
-        if(Auth::user() != null){
-            $artikel=Artikel::paginate(10);
-            return view('farmer/lihatArtikel',['artikel'=>$artikel]);
-        }
-        else{
-            $artikel=Artikel::paginate(10);
-            $datapakan=DataPakan::where('status','berhasil')->paginate(10);
-            return view('series/artikel',['artikel'=>$artikel,'datapakan'=>$datapakan]);
-        }
+
 
     }
     /**
@@ -161,7 +161,7 @@ class ControllerArtikel extends Controller
      * @return \Illuminate\Http\Response
      */
     public function detailartikel($id){
-        if(Auth::user()){
+        if(Auth::user() != null){
             $artikel=Artikel::find($id);
             return view('farmer/detailArtikel',['artikel'=>$artikel]);
         }

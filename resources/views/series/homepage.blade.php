@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="../assets2/img/hero-img.png" class="img-fluid animated" alt="">
+                    <img src="https://images.all-free-download.com/images/graphicthumb/farmland_drawing_chicken_icons_colored_cartoon_design_6831836.jpg" class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
@@ -115,9 +115,7 @@
                             <h4>Call:</h4>
                             <p>+62 896 271 994 08</p>
                         </div>
-
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-                    </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d505287.3530085397!2d113.26685550566961!3d-8.34669228378073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd699e31fb22e71%3A0x3027a76e352bd10!2sJember%2C%20Kaliwates%2C%20Jember%20Regency%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1606722441361!5m2!1sen!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> </div>
                 </div>
             </div>
         </section><!-- End Contact Section -->

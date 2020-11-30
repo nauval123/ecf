@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="article-details">
                                             <div class="article-cta">
-                                                <a href="#" class="btn btn-primary">Read More</a>
+                                                <a href="{{route('detilartil2',[$ar->id])}}" class="btn btn-primary">Read More</a>
                                             </div>
                                         </div>
                                     </article>

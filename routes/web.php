@@ -19,8 +19,8 @@ Route::view('/','series/homepage')->name('homepage');
 Route::post('login','LoginController@login')->name('login');
 Route::view('create','series/create');
 //Route::view('/artikel','series/artikel')->name('artikel');
-//Route::get('artikel/detail/{id}','');
-Route::get('artikel','ControllerArtikel@showartikel')->name('artikel');
+Route::get('artikel/{id}/more','ControllerArtikel@detailartikel')->name('detilartil1');
+Route::get('artikel','ControllerArtikel@show')->name('artikel');
 //route::get('artikel/{id}','');
 
 Route::group(['middleware'=>'auth','web'],function(){
@@ -38,7 +38,8 @@ Route::group(['middleware'=>'auth','web'],function(){
     });
     Route::get('farmer','ControllerDataPakan@index')->name('homepageFarmer');
     Route::view('farmer/profil','farmer/farmerProfil')->name('profilFarmer');
-    Route::get('farmer/artikel','ControllerArtikel@showartikel')->name('artikelFarmer');
+    Route::get('farmer/artikel','ControllerArtikel@show')->name('artikelFarmer');
+    Route::get('artikel/{id}','ControllerArtikel@detailartikel')->name('detilartil2');
     Route::get('datapakan/{id}','ControllerDataPakan@destroy')->name('hapusdatapakan');
     Route::resource('datapakan','ControllerDataPakan');
 });

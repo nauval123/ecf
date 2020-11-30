@@ -44,7 +44,7 @@
                                     @error('email')
                                         @if(($message))
                                           <div class="form-group">
-                                              <div class="alert alert-danger alert-has-icon">
+                                              <div class="alert alert-danger alert-has-icon alert-dismissible" role="alert">
                                                  <div class="alert-body">
                                                    <button class="close" data-dismiss="alert">
                                                        <span>x</span>

@@ -7,7 +7,7 @@
             </div>
             @if(session('pesan'))
                 <div class="form-group">
-                    <div class="alert alert-info alert-has-icon">
+                    <div class="alert alert-info alert-has-icon alert-dismissible">
                         <div class="alert-body">
                             <button class="close" data-dismiss="alert">
                                 <span>x</span>
