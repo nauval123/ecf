@@ -234,12 +234,19 @@ class ControllerDataPakan extends Controller
             'status'=>'required',
         ],$messages);
         try {
-            $user->datapakan()->find($id);
-              $user->status=$request->status;
-                $user->updated_at=now();
-            return redirect()->route('homepageFarmer')->with('pesan','sukses terubah');
+        
+            if(strcmp($request->status,'gagal') == 0 or strcmp($request->status,'berhasil')  == 0 ){
+                $dp=$user->datapakan()->find($id);
+                $dp->status = $request->status;
+                $dp->updated_at=now();
+                $dp->save();
+                return redirect()->route('homepageFarmer')->with('pesan','sukses terubah');
+            }
+            return redirect()->back()->with('pesan','format status salah');
+//                dd($request);
+
         }catch (QueryException $e){
-            return redirect()->route('datapakan.edit',[$id])->withInput()->with('pesan','gagal terubah');
+            return redirect()->route('datapakan.edit',[$id])->withInput()->with('pesan',"gagal terubah");
         }
     }
 

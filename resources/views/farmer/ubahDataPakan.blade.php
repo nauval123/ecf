@@ -56,7 +56,7 @@
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">status</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" placeholder="ubah dengan format berhasil atau gagal" name="status" class="form-control" @if($detail!=null)value="{{$detail->status}}" @endif required>
+                                <input type="text" name="status"  placeholder="ubah dengan format berhasil atau gagal" class="form-control" @if($detail!=null)value="{{$detail->status}}" @endif required>
                             </div>
                         </div>
                         <div class="form-group row mb-4">
