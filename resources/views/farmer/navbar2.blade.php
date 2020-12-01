@@ -54,18 +54,9 @@
                 </ul>
 
                 <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-                    <a class="btn btn-primary btn-lg btn-block btn-icon-split"   href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                    <a href="{{route('logoutAdmin')}}" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                        Log Out
                     </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-{{--                    <a href="{{route('logoutAdmin')}}" class="btn btn-primary btn-lg btn-block btn-icon-split">--}}
-{{--                        Log Out--}}
-{{--                    </a>--}}
                 </div>
             </aside>
         </div>

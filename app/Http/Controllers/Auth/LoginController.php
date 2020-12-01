@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -40,7 +42,32 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function update(Request $request)
+    {
+        try {
+            $this->validate($request, [
+                'id' => 'required',
+                'name' => 'required',
+                'email' => 'required'
+            ]);
+            $user = User::find($request->id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+            if($user->admin == 1){
+                return redirect()->route('profilAdmin')->with('message',"profil berhasil diubah!");
+            }elseif($user->admin == 0){
+                return redirect()->route('profilFarmer')->with('message','profil berhasil diubah');
+            }
 
+        } catch (ValidationException $e) {
+            if($user->admin == 1){
+                return redirect()->route('profilAdmin')->with('message',"profil gagal diubah!");
+            }elseif($user->admin == 0){
+                return redirect()->route('profilFarmer')->with('message','profil gagal diubah');
+            }
+        }
+    }
 
 
 }
