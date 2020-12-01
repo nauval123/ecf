@@ -42,7 +42,7 @@
                                     <td>{{$ar->judul}} </td>
                                     <td>{{$ar->created_at}}</td>
                                     <td>{{$ar->updated_at}}</td>
-                                        <td><a href="{{route('lihatartikel',[$ar->id])}}" class="btn btn-success">Detail</a></td>
+                                        <td><a href="{{route('editartikel',[$ar->id])}}" class="btn btn-success">Detail</a></td>
                                     </tr>
                                   @endforeach
                                 @endforeach

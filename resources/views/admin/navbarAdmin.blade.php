@@ -12,8 +12,8 @@
     <!-- CSS Libraries -->
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/components.css">
 </head>
 
 <body>
@@ -57,9 +57,18 @@
                 </ul>
 
                 <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-                    <a href="{{route('logoutAdmin')}}" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                        Log Out
+                    <a class="btn btn-primary btn-lg btn-block btn-icon-split"   href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
                     </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+{{--                    <a href="{{route('logoutAdmin')}}" class="btn btn-primary btn-lg btn-block btn-icon-split">--}}
+{{--                        Log Out--}}
+{{--                    </a>--}}
                 </div>
             </aside>
         </div>
@@ -77,7 +86,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="../assets/js/stisla.js"></script>
+<script src="http://127.0.0.1:8000/assets/js/stisla.js"></script>
 
 <!-- JS Libraies -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -85,8 +94,8 @@
 
 
 <!-- Template JS File -->
-<script src="../assets/js/scripts.js"></script>
-<script src="../assets/js/custom.js"></script>
+<script src="http://127.0.0.1:8000/assets/js/scripts.js"></script>
+<script src="http://127.0.0.1:8000/assets/js/custom.js"></script>
 
 
 <!-- Page Specific JS File -->
