@@ -37,6 +37,12 @@ class LoginController extends Controller
             }elseif($user->admin == 0){
                 return redirect()->route('profilFarmer')->with('message','profil gagal diubah');
             }
+        }catch (SQLiteException $e){
+            if($user->admin == 1){
+                return redirect()->route('profilAdmin')->with('message',"email sudah dipakai");
+            }elseif($user->admin == 0){
+                return redirect()->route('profilFarmer')->with('message','email sudah dipakai');
+            }
         }
     }
 

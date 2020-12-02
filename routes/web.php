@@ -40,7 +40,7 @@ Route::group(['middleware'=>'auth','web'],function(){
     Route::view('farmer/profil','farmer/farmerProfil')->name('profilFarmer');
     Route::get('farmer/artikel','ControllerArtikel@show')->name('artikelFarmer');
     Route::get('artikel/{id}','ControllerArtikel@detailartikel')->name('detilartil2');
-    Route::get('datapakan/{id}','ControllerDataPakan@destroy')->name('hapusdatapakan');
+//    Route::get('datapakan/{id}','ControllerDataPakan@destroy')->name('hapusdatapakan');
     Route::resource('datapakan','ControllerDataPakan');
 });
 

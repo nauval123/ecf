@@ -73,6 +73,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a href="{{route('login')}}" class="btn btn-danger ml-md-5" >batal</a>
                             </div>
                         </div>
                     </form>
