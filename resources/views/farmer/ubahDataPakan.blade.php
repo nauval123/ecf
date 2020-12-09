@@ -64,13 +64,12 @@
                             <div class="col-sm-12 col-md-7">
                                 <button class="btn btn-primary mr-2">simpan</button>
                                 <a href="{{route('homepageFarmer')}}" class="btn btn-info">cancel</a>
-{{--                                <a href="{{route('datapakan.destroy',[$detail->id])}}" class="btn btn-danger ml-md-5">hapus</a>--}}
-                                <form action="{{route('datapakan.destroy',[$detail->id])}}" method="post" >
-                                    <button class="btn btn-danger ml-md-2" type="submit">hapus</button>
-{{--                                    <input class="btn btn-default" type="submit" value="hapus" />--}}
-                                    <input type="hidden" name="_method" value="delete" />
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                </form>
+                                <a href="{{route('hapusdatapakan',[$detail->id])}}" class="btn btn-danger ml-md-5">hapus</a>
+{{--                                <form action="{{route('datapakan.destroy',[$detail->id])}}" method="post" >--}}
+{{--                                    @csrf--}}
+{{--                                    @method('delete')--}}
+{{--                                    <button class="btn btn-danger ml-md-2" type="submit">hapus</button>--}}
+{{--                                </form>--}}
                             </div>
                         </div>
                         </form>
