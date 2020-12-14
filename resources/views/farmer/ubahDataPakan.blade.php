@@ -21,7 +21,7 @@
             <div class="section-body">
                 <div class="card">
                     <div class="card-header">
-                        <h4>artikel</h4>
+                        <h4>datapakan {{$detail->id}}</h4>
                         <div class="card-header-form">
                         </div>
                     </div>
@@ -41,22 +41,35 @@
                                 <input name="umur" type="number" class="form-control"  @if($detail!=null)value="{{$detail->umurAyam}}" @endif value="{{old('judul')}}" readonly>
                             </div>
                         </div>
-                        <div class="form-group row mb-4">
-                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">bobot</label>
-                            <div class="col-sm-12 col-md-7">
-                                <input name="bobot" type="number" class="form-control"  @if($detail!=null)value="{{$detail->bobot}}" @endif value="{{old('judul')}}" readonly>
-                            </div>
-                        </div>
+{{--                        <div class="form-group row mb-4">--}}
+{{--                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">bobot</label>--}}
+{{--                            <div class="col-sm-12 col-md-7">--}}
+{{--                                <input name="bobot" type="number" class="form-control"  @if($detail!=null)value="{{$detail->bobot}}" @endif value="{{old('judul')}}" readonly>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">detail</label>
                             <div class="col-sm-12 col-md-7">
-                                <textarea name="detail" class="form-control" id="exampleFormControlTextarea1" rows="5" readonly>@if($detail!=null){{htmlspecialchars_decode($detail->detail)}} @endif </textarea>
+                                <textarea name="detail" class="form-control" id="exampleFormControlTextarea1" rows="5"  readonly>@if($detail!=null){{htmlspecialchars_decode($detail->detail)}} @endif </textarea>
                             </div>
                         </div>
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">keterangan</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <textarea name="keterangan" class="form-control" id="exampleFormControlTextarea1" rows="5">@if($detail->keterangan!=null){{($detail->keterangan)}} @endif </textarea>
+                                </div>
+                            </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">status</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" name="status"  placeholder="ubah dengan format berhasil atau gagal" class="form-control" @if($detail!=null)value="{{$detail->status}}" @endif required>
+                                <select  class="form-control" name="status">
+                                    @if($detail!=null)
+                                        <option selected>{{$detail->status}}</option>
+                                    @endif
+                                        <option value="1">berhasil</option>
+                                        <option value="2">gagal</option>
+                                </select>
+{{--                                <input type="hidden" name="status"  placeholder="ubah dengan format berhasil atau gagal" class="form-control" @if($detail!=null)value="{{$detail->status}}" @endif required>--}}
                             </div>
                         </div>
                         <div class="form-group row mb-4">

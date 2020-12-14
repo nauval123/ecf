@@ -54,10 +54,10 @@ class LoginController extends Controller
 //            return redirect()->route('homepageAdmin');
 //          }
 //      }
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-            return redirect()->route('homepageAdmin');
-        }
-      return redirect(route('loginpage'))->with('message','login gagal');
+//        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+//            return redirect()->route('homepageAdmin');
+//        }
+//      return redirect(route('loginpage'))->with('message','login gagal');
     }
 
     public function logout(Request $request){

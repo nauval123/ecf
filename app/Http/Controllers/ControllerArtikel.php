@@ -77,7 +77,10 @@ class ControllerArtikel extends Controller
         else{
             $artikel=Artikel::paginate(10);
             $datapakan=DataPakan::where('status','berhasil')->paginate(10);
-            return view('series/artikel',['artikel'=>$artikel,'datapakan'=>$datapakan]);
+            $histori=User::select('id','name')->where('admin',0)->get();
+            $null='';
+//            dd($datapakan);
+            return view('series/artikel',['artikel'=>$artikel,'datapakan'=>$datapakan,'peternak'=>$histori,'nama'=>$null]);
         }
     }
 
@@ -150,8 +153,13 @@ class ControllerArtikel extends Controller
         }
     }
 
-    public function showartikel(){
-
+    public function showdetail($id){
+        $profil1=User::select('name')->where('id',$id)->get();
+        $profil=DataPakan::where('user_id',$id)->paginate(10);
+        $artikel=Artikel::paginate(10);
+        $datapakan=DataPakan::where('status','berhasil')->paginate(10);
+        $histori=User::select('id','name')->where('admin',0)->get();
+        return view('series/artikel',['artikel'=>$artikel,'datapakan'=>$datapakan,'peternak'=>$histori,'profil'=>$profil,'nama'=>$profil1,]);
 
     }
     /**

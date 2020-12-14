@@ -226,6 +226,7 @@ class ControllerDataPakan extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd($request);
         $user=auth()->user();
         $messages = [
             'required' => 'Tidak Boleh Kosong!!',
@@ -234,19 +235,24 @@ class ControllerDataPakan extends Controller
             'status'=>'required',
         ],$messages);
         try {
-
-            if(strcmp($request->status,'gagal') == 0 or strcmp($request->status,'berhasil')  == 0 ){
-                $dp=$user->datapakan()->find($id);
-                $dp->status = $request->status;
+            $dp=$user->datapakan()->find($id);
+            if($request->status == 1){
+                $dp->status = 'berhasil';
+            }
+            elseif ($request->status == 2){
+                $dp->status = 'gagal';
+            }
+                $dp->keterangan=$request->keterangan;
                 $dp->updated_at=now();
                 $dp->save();
                 return redirect()->route('homepageFarmer')->with('pesan','sukses terubah');
-            }
-            return redirect()->back()->with('pesan','format status salah');
-//                dd($request);
 
+
+//            dd($request);
+            return redirect()->back()->with('pesan',$dp->status);
+//                dd($request);
         }catch (QueryException $e){
-            return redirect()->route('datapakan.edit',[$id])->withInput()->with('pesan',"gagal terubah");
+            return redirect()->route('datapakan.edit',[$id])->withInput()->with('pesan',$e);
         }
     }
 

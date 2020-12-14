@@ -40,7 +40,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>umur</label>
-                                                            <input name="umur" type="number" class="form-control" min='1' placeholder="umur dalam satuan minggu" value="{{old('bobot')}}" required>
+                                                            <input name="umur" type="number" class="form-control" min='1' placeholder="umur dalam satuan minggu" value="{{old('umur')}}" required>
 
                                                             @if($errors->has('umur'))
                                                                 <div class="text-danger">
@@ -48,16 +48,16 @@
                                                                 </div>
                                                             @endif
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>bobot</label>
-                                                        <input name="bobot" type="number" class="form-control" min='1' placeholder="bobot dalam satuan gram" value="{{old('bobot')}}" required>
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label>bobot</label>--}}
+{{--                                                        <input name="bobot" type="number" class="form-control" min='1' placeholder="bobot dalam satuan gram" value="{{old('bobot')}}" required>--}}
 
-                                                        @if($errors->has('bobot'))
-                                                            <div class="text-danger">
-                                                                {{ $errors->first('bobot')}}
-                                                            </div>
-                                                        @endif
-                                                    </div>
+{{--                                                        @if($errors->has('bobot'))--}}
+{{--                                                            <div class="text-danger">--}}
+{{--                                                                {{ $errors->first('bobot')}}--}}
+{{--                                                            </div>--}}
+{{--                                                        @endif--}}
+{{--                                                    </div>--}}
                                                 </div>
                                                 <div class="card-footer text-right">
                                                     <button class="btn btn-primary">Submit</button>

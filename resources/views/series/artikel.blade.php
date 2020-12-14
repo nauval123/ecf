@@ -1,6 +1,6 @@
 @extends('navbar')
 @section('content')
-
+{{--{{dd($nama)}}--}}
         <section id="about" >
             <div class="container"  data-aos="fade-up">
                     <div class="row m-xl-5">
@@ -48,6 +48,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped">
                                     <tr>
+                                        <th>peternak</th>
                                         <th>nama</th>
                                         <th>umur(minggu)</th>
                                         <th>berat(gram)</th>
@@ -57,7 +58,10 @@
         {{--                                <th>Action</th>--}}
                                     </tr>
                                     @foreach($datapakan as $a)
+                                        @foreach($peternak as $b)
+                                            @if($a->user_id==$b->id)
                                             <tr>
+                                                 <td><a href="{{route('detaildatapeternak',[$b->id])}}" style="color: black">{{$b->name}}</a></td>
                                                 <td>{{$a->nama}} </td>
                                                 <td>{{$a->umurAyam}}</td>
                                                 <td>{{$a->bobot}}</td>
@@ -66,6 +70,8 @@
                                                 <td>{{$a->updated_at}}</td>
         {{--                                        <td><a href="" class="btn btn-success">Detail</a> </td>--}}
                                             </tr>
+                                            @endif
+                                            @endforeach
                                     @endforeach
                                 </table>
                             </div>
@@ -75,4 +81,49 @@
                 </div>
             </div>
         </section>
+@if($nama != null)
+        <section id="services" class="services section-bg">
+            <div class="container" data-aos="fade-up">
+                <div class="section-body" >
+                    <div class="card">
+{{--                        <div class="card-header">--}}
+{{--                            --}}{{--                        <h4>{{auth()->user()}}</h4>--}}
+{{--                            <h4>{{$nama}}</h4>--}}
+{{--                            <div class="card-header-form">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        {{dd($nama)}}--}}
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>nama ayam</th>
+                                        <th>umur(minggu)</th>
+                                        <th>berat(gram)</th>
+                                        <th class="text-center">keterangan</th>
+                                        <th>status</th>
+                                        <th>tanggal</th>
+                                        {{--                                <th>Action</th>--}}
+                                    </tr>
+                                    @foreach($profil as $a)
+                                                <tr>
+{{--                                                    <td><a href="" style="color: black">{{$b->name}}</a></td>--}}
+                                                    <td>{{$a->nama}} </td>
+                                                    <td>{{$a->umurAyam}}</td>
+                                                    <td>{{$a->bobot}}</td>
+                                                    <td>{{$a->detail}}</td>
+                                                    <td>{{$a->status}}</td>
+                                                    <td>{{$a->updated_at}}</td>
+                                                    {{--                                        <td><a href="" class="btn btn-success">Detail</a> </td>--}}
+                                                </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                            {{$profil->links()}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 @endsection

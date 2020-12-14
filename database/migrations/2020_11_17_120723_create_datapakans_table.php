@@ -19,9 +19,10 @@ class CreateDatapakansTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('nama');
             $table->integer('umurAyam');
-            $table->integer('bobot');
+//            $table->integer('bobot');
             $table->string('detail',100)->default('');
             $table->string('status',10)->default('');
+            $table->text('keterangan')->default('');
             $table->timestamps();
         });
     }
