@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('login','LoginController@index')->name('loginpage');
+Route::get('login','AkunController@index')->name('loginpage');
 Route::view('/','series/homepage')->name('homepage');
-//Route::post('login','LoginController@login')->name('login');
+//Route::post('login','AkunController@login')->name('login');
 Route::view('create','series/create');
 //Route::view('/artikel','series/artikel')->name('artikel');
 Route::get('artikel/{id}/more','ControllerArtikel@detailartikel')->name('detilartil1');
@@ -25,8 +25,8 @@ Route::get('artikel','ControllerArtikel@show')->name('artikel');
 Route::get('detail/{id}','ControllerArtikel@showdetail')->name('detaildatapeternak');
 
 Route::group(['middleware'=>'auth','web'],function(){
-    Route::get('logout','LoginController@logout')->name('logoutAdmin');
-    Route::post('profile/update','LoginController@update')->name('updateProfil');
+    Route::get('logout','Auth\LoginController@logout')->name('logoutAdmin');
+    Route::post('profile/update','AkunController@update')->name('updateProfil');
     Route::group(['middleware'=>['admin']],function (){
         Route::get('admin','ControllerArtikel@index')->name('homepageAdmin');
         Route::get('artikel/{id}','ControllerArtikel@edit')->name('lihatartikel');

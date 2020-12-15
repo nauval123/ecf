@@ -22,7 +22,7 @@ class CreateDatapakansTable extends Migration
 //            $table->integer('bobot');
             $table->string('detail',100)->default('');
             $table->string('status',10)->default('');
-            $table->text('keterangan')->default('');
+            $table->text('keterangan')->default(null);
             $table->timestamps();
         });
     }

@@ -48,11 +48,23 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
                         <div class="form-group row mb-4">
-                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">detail</label>
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"> 1.</label>
                             <div class="col-sm-12 col-md-7">
-                                <textarea name="detail" class="form-control" id="exampleFormControlTextarea1" rows="5"  readonly>@if($detail!=null){{htmlspecialchars_decode($detail->detail)}} @endif </textarea>
+                                @if($detail!=null){{$hasilpakan}} @endif
                             </div>
                         </div>
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">2.</label>
+                                <div class="col-sm-12 col-md-7">
+                                    @if($detail!=null){{$hasilberat}} @endif
+                                </div>
+                            </div>
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">3.</label>
+                                <div class="col-sm-12 col-md-7">
+                                   @if($detail!=null){{$suhu}} @endif
+                                </div>
+                            </div>
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">keterangan</label>
                                 <div class="col-sm-12 col-md-7">

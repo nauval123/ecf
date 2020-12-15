@@ -32,7 +32,7 @@
                                 <tr>
                                     <th>nama</th>
                                     <th>umur(minggu)</th>
-                                    <th>berat(gram)</th>
+{{--                                    <th>berat(gram)</th>--}}
                                     <th>tanggal</th>
                                     <th>Action</th>
                                 </tr>
@@ -41,7 +41,7 @@
                                         <tr>
                                             <td>{{$ar->nama}} </td>
                                             <td>{{$ar->umurAyam}}</td>
-                                            <td>{{$ar->bobot}}</td>
+{{--                                            <td>{{$ar->bobot}}</td>--}}
                                             <td>{{$ar->created_at}}</td>
                                             <td>{{$ar->updated_at}}</td>
                                             <td><a href="{{route('datapakan.edit',[$ar->id])}}" class="btn btn-success">Detail</a> </td>

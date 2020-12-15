@@ -40,7 +40,7 @@
                             <input type="hidden" name="id" value="{{auth()->user()->id}}">
                         </div>
                         <div class="card-footer text-left">
-                            <button class="btn btn-primary">Save Changes</button>
+                            <button class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>

@@ -18,6 +18,7 @@ class ControllerDataPakan extends Controller
     {
         $user = auth()->user()->id;
         $datapakan=Auth::user()->find([$user]);
+//        dd($datapakan);
         return view('farmer/homepagefarmer',['datapakan'=>$datapakan]);
     }
 
@@ -54,7 +55,7 @@ class ControllerDataPakan extends Controller
         $this->validate($request,[
             'nama'=>'required',
             'umur'=>'required',
-            'bobot'=>'required',
+//            'bobot'=>'required',
         ],$messages);
 
             function penakaran($um){
@@ -183,7 +184,7 @@ class ControllerDataPakan extends Controller
             $user->datapakan()->create([
                 'nama'=>$request->nama,
                 'umurAyam'=>$request->umur,
-                'bobot'=>$request->bobot,
+//                'bobot'=>$request->bobot,
                 'detail'=> $ur,
                 'created_at'=>now(),
             ]);
@@ -214,7 +215,12 @@ class ControllerDataPakan extends Controller
     {
         $user = auth()->user();
         $detail=$user->datapakan()->find($id);
-        return view('farmer\ubahDataPakan',['detail'=>$detail]);
+        $detail2=explode("\n",$detail->detail);
+        $detail3=$detail2[0];
+        $detail4=$detail2[1];
+        $detail5=$detail2[2];
+//        dd($detail5);
+        return view('farmer\ubahDataPakan',['detail'=>$detail,'hasilpakan'=>$detail3,'hasilberat'=>$detail4,"suhu"=>$detail5]);
     }
 
     /**

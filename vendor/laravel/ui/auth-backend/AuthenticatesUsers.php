@@ -2,13 +2,18 @@
 
 namespace Illuminate\Foundation\Auth;
 
+use App\Providers\RouteServiceProvider;
+use App\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 
 trait AuthenticatesUsers
 {
+    protected $redirectTo = RouteServiceProvider::DASHBOARD;
     use RedirectsUsers, ThrottlesLogins;
 
     /**
@@ -200,4 +205,6 @@ trait AuthenticatesUsers
     {
         return Auth::guard();
     }
+
+
 }
