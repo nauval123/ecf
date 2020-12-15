@@ -48,6 +48,16 @@
                                                                 </div>
                                                             @endif
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label>jumlah</label>
+                                                        <input name="jumlah" type="number" class="form-control" min='1' placeholder="jumlah  ayam" value="{{old('jumlah')}}" required>
+
+                                                        @if($errors->has('jumlah'))
+                                                            <div class="text-danger">
+                                                                {{ $errors->first('jumlah')}}
+                                                            </div>
+                                                        @endif
+                                                    </div>
 {{--                                                    <div class="form-group">--}}
 {{--                                                        <label>bobot</label>--}}
 {{--                                                        <input name="bobot" type="number" class="form-control" min='1' placeholder="bobot dalam satuan gram" value="{{old('bobot')}}" required>--}}

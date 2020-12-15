@@ -8,7 +8,7 @@ class DataPakan extends Model
 {
     protected $table = 'datapakan';
     protected $fillable=[
-        'user_id','nama','umurAyam','bobot','detail','status','keterangan'
+        'user_id','nama','umurAyam','bobot','detail','status','keterangan','jumlah'
     ];
     public function users(){
         return $this->belongsTo(User::class);

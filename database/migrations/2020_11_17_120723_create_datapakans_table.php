@@ -19,6 +19,8 @@ class CreateDatapakansTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('nama');
             $table->integer('umurAyam');
+            $table->integer('beratoptimal');
+            $table->integer('jumlah')->default(1);
 //            $table->integer('bobot');
             $table->string('detail',100)->default('');
             $table->string('status',10)->default('');

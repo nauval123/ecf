@@ -41,6 +41,12 @@
                                 <input name="umur" type="number" class="form-control"  @if($detail!=null)value="{{$detail->umurAyam}}" @endif value="{{old('judul')}}" readonly>
                             </div>
                         </div>
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jumlah</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <input name="jumlah" type="number" class="form-control" min="1" @if($detail!=null)value="{{$detail->jumlah}}" @endif value="{{old('judul')}}">
+                                </div>
+                            </div>
 {{--                        <div class="form-group row mb-4">--}}
 {{--                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">bobot</label>--}}
 {{--                            <div class="col-sm-12 col-md-7">--}}
@@ -74,7 +80,7 @@
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">status</label>
                             <div class="col-sm-12 col-md-7">
-                                <select  class="form-control" name="status">
+                                <select  class="form-control" name="status" required>
                                     @if($detail!=null)
                                         <option selected>{{$detail->status}}</option>
                                     @endif

@@ -51,7 +51,8 @@
                                         <th>peternak</th>
                                         <th>nama</th>
                                         <th>umur(minggu)</th>
-                                        <th>berat(gram)</th>
+                                        <th>Jumlah Ayam</th>
+                                        <th>detail</th>
                                         <th class="text-center">keterangan</th>
                                         <th>status</th>
                                         <th>tanggal</th>
@@ -64,8 +65,9 @@
                                                  <td><a href="{{route('detaildatapeternak',[$b->id])}}" style="color: black">{{$b->name}}</a></td>
                                                 <td>{{$a->nama}} </td>
                                                 <td>{{$a->umurAyam}}</td>
-                                                <td>{{$a->bobot}}</td>
+                                                <td>{{$a->jumlah}}</td>
                                                 <td>{{$a->detail}}</td>
+                                                <td>{{$a->keterangan}}</td>
                                                 <td>{{$a->status}}</td>
                                                 <td>{{$a->updated_at}}</td>
         {{--                                        <td><a href="" class="btn btn-success">Detail</a> </td>--}}
@@ -99,7 +101,8 @@
                                     <tr>
                                         <th>nama ayam</th>
                                         <th>umur(minggu)</th>
-                                        <th>berat(gram)</th>
+                                        <th>jumlah ayam</th>
+                                        <th>Detail</th>
                                         <th class="text-center">keterangan</th>
                                         <th>status</th>
                                         <th>tanggal</th>
@@ -110,8 +113,9 @@
 {{--                                                    <td><a href="" style="color: black">{{$b->name}}</a></td>--}}
                                                     <td>{{$a->nama}} </td>
                                                     <td>{{$a->umurAyam}}</td>
-                                                    <td>{{$a->bobot}}</td>
+                                                    <td>{{$a->jumlah}}</td>
                                                     <td>{{$a->detail}}</td>
+                                                    <td>{{$a->keterangan}}</td>
                                                     <td>{{$a->status}}</td>
                                                     <td>{{$a->updated_at}}</td>
                                                     {{--                                        <td><a href="" class="btn btn-success">Detail</a> </td>--}}
